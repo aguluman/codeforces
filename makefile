@@ -54,11 +54,18 @@ add-problem:
 run-problem:
 	@if [ -z "$(CONTEST)" ] || [ -z "$(PROBLEM)" ]; then echo "Usage: make run-problem CONTEST=XXXX PROBLEM=A [INPUT=input|path]"; exit 1; fi; \
 	contest_dir="contests/contest_$(CONTEST)"; \
-	problem_dir="$$contest_dir/$(PROBLEM)-*"; \
-	prob_dirs=($${problem_dir}); \
-	if [ ! -d "$${prob_dirs[0]}" ]; then echo "Problem directory not found matching: $$problem_dir"; exit 1; fi; \
-	problem_path="$${prob_dirs[0]}"; \
-	if [ "$(INPUT)" = "input" ]; then \
+	[ ! -d "$$contest_dir" ] && { echo "Contest directory not found: $$contest_dir"; exit 1; }; \
+	shopt -s nullglob; \
+	problem_path=""; \
+	for d in "$$contest_dir"/$(PROBLEM)-*/; do \
+		if [ -d "$$d" ]; then problem_path="$$d"; break; fi; \
+	done; \
+	shopt -u nullglob; \
+	[ -z "$$problem_path" ] && { echo "Problem directory not found matching: $$contest_dir/$(PROBLEM)-*"; exit 1; }; \
+	# strip trailing slash if present \
+	problem_path="$${problem_path%/}"; \
+	# Default to input.txt when INPUT is omitted or explicitly 'input' \
+	if [ -z "$(INPUT)" ] || [ "$(INPUT)" = "input" ]; then \
 		input_file="input.txt"; \
 	else \
 		input_file="$(INPUT)"; \

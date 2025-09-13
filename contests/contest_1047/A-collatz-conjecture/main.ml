@@ -10,6 +10,11 @@
 module FastIO = struct
   let sc = Scanf.Scanning.from_channel stdin
   let read_int () = Scanf.bscanf sc " %d" (fun x -> x)
+
+  let read_pair_int () =
+    let a = read_int () in
+    let b = read_int () in
+    (a, b)
 end
 
 (* Solution: find any initial value that reaches x after k steps *)
