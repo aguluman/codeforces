@@ -150,5 +150,6 @@ This workspace is designed to help you:
 - **Learn OCaml patterns** commonly used in competitive programming
 - **Build confidence** through structured problem-solving workflow
 - **Improve gradually** by studying implemented solutions
+- **Submit gracefully** by submitting only the main.ml file for the problem you solved.
 
 Happy coding and good luck with your competitive programming journey! 🚀
