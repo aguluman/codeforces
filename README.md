@@ -53,7 +53,7 @@ To get started with OCaml development:
    make help
    ```
 
-## 🔧 Usage Guide
+## Usage Guide
 
 ### Creating a New Contest
 
@@ -132,7 +132,7 @@ make clean
 ```
 
 
-## 🙋‍♂️ Support
+## Support
 
 If you encounter any issues or have questions:
 
@@ -141,7 +141,7 @@ If you encounter any issues or have questions:
 3. **Open** an issue on GitHub with detailed description
 4. **Include** your OCaml and Dune versions
 
-## 🎯 Goals for Non-Expert Competitors
+## Goals for Non-Expert Competitors
 
 This workspace is designed to help you:
 
