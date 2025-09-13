@@ -10,7 +10,6 @@
 module FastIO = struct
   let sc = Scanf.Scanning.from_channel stdin
   let read_int () = Scanf.bscanf sc " %d" (fun x -> x)
-  let read_n_ints n = Array.init n (fun _ -> read_int ())
 end
 
 let solve_one_case () =
